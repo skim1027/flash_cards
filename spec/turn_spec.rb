@@ -32,5 +32,15 @@ RSpec.describe Turn do
     expect(turn.feedback).to eq("Correct!")
   end
 
+  it 'tells you if incorrect' do
+    turn = Turn.new("Other answer", card)
 
+    expect(turn.correct?).to be false  
+  end
+    
+  it 'gives you feedback if incorrect' do
+    turn = Turn.new("Other answer", card)
+
+    expect(turn.feedback).to eq("Incorrect.")
+  end
 end
